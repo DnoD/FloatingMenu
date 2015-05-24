@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ContextMenuAnimation">
+        <item name="android:windowEnterAnimation">@anim/alpha_in_animation</item>
+        <item name="android:windowExitAnimation">@anim/alpha_out_animation</item>
+    </style>
+</resources>
