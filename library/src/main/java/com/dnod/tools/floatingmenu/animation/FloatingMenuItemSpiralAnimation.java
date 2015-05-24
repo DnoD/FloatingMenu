@@ -15,25 +15,22 @@ public class FloatingMenuItemSpiralAnimation implements TypeEvaluator<PointF> {
 
     @Override
     public PointF evaluate(float fraction, PointF startValue, PointF endValue) {
-        float startX = startValue.x;
-        float startY = startValue.y;
-        float endX = endValue.x;
-        float endY = endValue.y;
-        float lengthX = startX - endX;
-        float lengthY = startY - endY;
+        float offsetX = startValue.x - endValue.x;
+        float offsetY = startValue.y - endValue.y;
+
+        float diffY = endValue.y - startValue.y;
+        float diffX = endValue.x - startValue.x;
+        float angleInDegrees = (float) (Math.atan2(diffY, diffX) * 180 / Math.PI);
+
         float endRadius = (float) Math.sqrt(
-                Math.pow(lengthX, 2) +
-                        Math.pow(lengthY, 2));
-        float a = 0f;
-        float b = (endRadius - a) / (mNumTurns * 360f);
-        float endAngle = (endRadius - a) / b;
-        float angle = endAngle * fraction;
-        float radius = a + b * angle;
-        float angleOffset = (float) (90f - Math.atan2(lengthX, lengthY));
-        float deltaX = (float) (radius * Math.cos(Math.PI * (angle / 180 + angleOffset)));
-        float deltaY = (float) (radius * Math.sin(Math.PI * (angle / 180 + angleOffset)));
-        float nexX = startX + deltaX;
-        float nextY = startY - deltaY;
+                Math.pow(offsetX, 2) +
+                        Math.pow(offsetY, 2));
+        float angle = (angleInDegrees + 360 * mNumTurns) * fraction;
+        float radius = endRadius * fraction;
+        float deltaX = (float) (radius * Math.cos(Math.toRadians(angle)));
+        float deltaY = (float) (radius * Math.sin(Math.toRadians(angle)));
+        float nexX = startValue.x + deltaX;
+        float nextY = startValue.y + deltaY;
         return new PointF(nexX, nextY);
     }
 }
