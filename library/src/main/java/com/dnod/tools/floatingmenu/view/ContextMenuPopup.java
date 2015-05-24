@@ -1,4 +1,4 @@
-package com.dnod.tools.floatingmenu;
+package com.dnod.tools.floatingmenu.view;
 
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
@@ -15,6 +15,10 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+
+import com.dnod.tools.floatingmenu.ContextMenu;
+import com.dnod.tools.floatingmenu.ContextMenuItemsAppearanceAlgorithm;
+import com.dnod.tools.floatingmenu.R;
 
 import java.util.ArrayList;
 import java.util.List;

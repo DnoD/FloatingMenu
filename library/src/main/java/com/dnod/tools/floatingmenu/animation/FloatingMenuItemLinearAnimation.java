@@ -1,4 +1,4 @@
-package com.dnod.tools.floatingmenu;
+package com.dnod.tools.floatingmenu.animation;
 
 import android.animation.TypeEvaluator;
 import android.graphics.PointF;

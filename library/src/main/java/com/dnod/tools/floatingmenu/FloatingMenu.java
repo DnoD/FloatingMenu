@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 
+import com.dnod.tools.floatingmenu.view.ContextMenuPopup;
+
 
 public class FloatingMenu extends ContextMenu {
     private PopupWindow mMenuWindow;

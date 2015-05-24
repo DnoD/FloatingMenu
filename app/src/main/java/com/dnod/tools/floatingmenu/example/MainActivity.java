@@ -14,7 +14,7 @@ import com.dnod.tools.floatingmenu.ContextMenu;
 import com.dnod.tools.floatingmenu.ContextMenuManager;
 import com.dnod.tools.floatingmenu.FloatingMenuBuilder;
 import com.dnod.tools.floatingmenu.FloatingMenuAlgorithm;
-import com.dnod.tools.floatingmenu.FloatingMenuItemLinearAnimation;
+import com.dnod.tools.floatingmenu.animation.FloatingMenuItemLinearAnimation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,8 +46,8 @@ public class MainActivity extends ActionBarActivity {
                         Display display = MainActivity.this.getWindowManager().getDefaultDisplay();
                         Point size = new Point();
                         display.getSize(size);
-                        mMenuManager.setMenuBuilder(new FloatingMenuBuilder(MainActivity.this, event.getX(), event.getY())
-                                .setItemsAppearanceAlgorithm(new FloatingMenuAlgorithm(new PointF(event.getX(), event.getY()), size.x, size.y, menuItems.size(), 300))
+                        mMenuManager.setMenuBuilder(new FloatingMenuBuilder(MainActivity.this, event.getX(), event.getY() + getSupportActionBar().getHeight())
+                                .setItemsAppearanceAlgorithm(new FloatingMenuAlgorithm(new PointF(event.getX(), event.getY() + getSupportActionBar().getHeight()), size.x, size.y, menuItems.size(), 300))
                                 .addMenuItems(menuItems)
                                 .setAppearanceAnimation(new FloatingMenuItemLinearAnimation())
                                 .setOnItemClickListener(new ContextMenu.OnItemClickListener() {
